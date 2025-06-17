@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* color-scheme: light dark;*/
+}
+html {
+  font-size: 62.5%;
+}
+li {
+  list-style: none;
+}
+.container {
+  max-width: 140rem;
+  padding: 4rem 2.4rem;
+  margin: 0 auto;
+}
+
+:root {
+  --bg-color: #bac095;
+  --btn-color: #636b2f;
+  --dark-color: #3d4127;
+  --helper-color: #d4de95;
+}
+
+html {
+  font-size: 62.5%;
+}
+/* base style*/
+body {
+  margin: 0;
+  /*min-width: 32rem;*/
+  min-height: 100vh;
+}
+h1 {
+  font-size: 5.4rem;
+  line-height: 1.1;
+  font-weight: bold;
+}
+
+p,
+li,
+label,
+input,
+textarea {
+  font-size: 1.8rem;
+  line-height: 1.56;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.06rem;
+}
+a {
+  font-weight: 500;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  color: var(--btn-color);
+  text-decoration: inherit;
+}
+li {
+  list-style: none;
+}
+
+.container {
+  max-width: 140rem;
+  padding: 4rem 2.4rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  gap: 6.4rem;
+}
+
+.grid-two-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* module rules / reusable */
+button {
+  text-transform: capitalize;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  background-color: #636b2f;
+  height: auto;
+  width: auto;
+}
