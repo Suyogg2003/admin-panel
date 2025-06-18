@@ -18,6 +18,7 @@ export const Login = () => {
     <section>
       <main>
         <div className="section-registration">
+          <h1 className="main-heading">Login Now</h1>
           <div className="container grid grid-two-cols">
             <div className="registration-image">
               <img
@@ -28,9 +29,6 @@ export const Login = () => {
               />
             </div>
             <div className="registration-form">
-              <h1 className="main-heading mb-3">Login</h1>
-              <br />
-
               <form onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="email">Email</label>

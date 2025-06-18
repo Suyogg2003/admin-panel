@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/contact.css";
 
 export const Contact = () => {
   const [contact, setContact] = useState({

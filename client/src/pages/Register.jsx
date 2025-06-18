@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/register.css";
 
 export const Register = () => {
   const [user, setUser] = useState({
@@ -30,6 +31,7 @@ export const Register = () => {
       <section>
         <main>
           <div className="section-registration">
+            <h1 className="main-heading">Register Now</h1>
             <div className="container grid grid-two-cols">
               <div className="registration-image">
                 <img
@@ -40,7 +42,7 @@ export const Register = () => {
                 />
               </div>
               <div className="registration-form">
-                <h1 className="main-heading mb-3">registration form</h1>
+                {/* <h1 className="main-heading mb-3">registration form</h1> */}
                 <br />
 
                 <form onSubmit={handeleSubmit}>
