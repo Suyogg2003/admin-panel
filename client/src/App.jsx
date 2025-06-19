@@ -4,6 +4,7 @@ import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
 import { Register } from "./pages/Register";
 import { Login } from "./pages/Login";
+import { Error } from "./pages/Error";
 import { Navbar } from "./components/Navbar";
 const App = () => {
   return (
@@ -16,6 +17,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          {/* this route for error page 404 */}
+          <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </>
