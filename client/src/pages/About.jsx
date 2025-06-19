@@ -1,3 +1,4 @@
+import { Analytics } from "./Analytics";
 export const About = () => {
   return (
     <>
