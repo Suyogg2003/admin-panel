@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/home.css";
 import { Analytics } from "./Analytics";
 export const Home = () => {
   return (
