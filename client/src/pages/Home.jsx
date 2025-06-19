@@ -1,4 +1,5 @@
 import React from "react";
+import { Analytics } from "./Analytics";
 export const Home = () => {
   return (
     <>
@@ -34,6 +35,8 @@ export const Home = () => {
           </div>
         </section>
       </main>
+
+      <Analytics />
     </>
   );
 };
