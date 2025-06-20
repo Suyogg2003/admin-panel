@@ -1,0 +1,482 @@
+/* Error Page Styles */
+
+#error-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#error-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+#error-page::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  pointer-events: none;
+}
+
+.content {
+  max-width: 600px;
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease-out;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4rem 3rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f093fb, #f5576c, #667eea);
+  border-radius: 20px 20px 0 0;
+}
+
+.header {
+  font-size: 8rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #ffffff, #f093fb, #ffffff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientText 3s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  line-height: 1;
+  position: relative;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #f093fb, transparent);
+  border-radius: 2px;
+}
+
+.content h4 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  animation: slideInLeft 0.8s ease-out 0.2s both;
+}
+
+.content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 3rem;
+  animation: slideInRight 0.8s ease-out 0.4s both;
+}
+
+.btns {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.btns a {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btns a:first-child {
+  background: linear-gradient(45deg, #f5576c, #f093fb);
+  color: white;
+  box-shadow: 0 10px 30px rgba(245, 87, 108, 0.3);
+}
+
+.btns a:last-child {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.btns a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.btns a:first-child:hover {
+  box-shadow: 0 15px 40px rgba(245, 87, 108, 0.5);
+  background: linear-gradient(45deg, #f093fb, #f5576c);
+}
+
+.btns a:last-child:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btns a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btns a:hover::before {
+  left: 100%;
+}
+
+/* Floating decorative elements */
+.content::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    rgba(240, 147, 251, 0.2) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+
+/* Additional decorative circles */
+.content::before {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(
+    circle,
+    rgba(245, 87, 108, 0.15) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite reverse;
+}
+
+/* Animations */
+@keyframes gradientText {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Pulsing animation for 404 number */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.header {
+  animation: gradientText 3s ease-in-out infinite, pulse 4s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #error-page {
+    padding: 1rem;
+    min-height: 100vh;
+  }
+
+  .content {
+    padding: 3rem 2rem;
+    max-width: 90%;
+  }
+
+  .header {
+    font-size: 6rem;
+  }
+
+  .content h4 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .btns {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .btns a {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 2rem 1.5rem;
+  }
+
+  .header {
+    font-size: 4.5rem;
+  }
+
+  .content h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .btns a {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Focus indicators for accessibility */
+.btns a:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* Active state for links */
+.btns a:active {
+  transform: translateY(-1px);
+}
+
+/* Hover effects for the entire content card */
+.content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+}
+
+/* Performance optimizations */
+#error-page {
+  will-change: transform;
+}
+
+.content,
+.btns a {
+  will-change: transform;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .content,
+  .content h4,
+  .content p,
+  .btns {
+    animation: none;
+  }
+
+  .header {
+    animation: none;
+    background: white;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+  }
+
+  .btns a:hover,
+  .content:hover {
+    transform: none;
+  }
+
+  .content::after,
+  .content::before {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .content {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid white;
+  }
+
+  .header {
+    background: white;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+  }
+
+  .btns a:first-child {
+    background: white;
+    color: black;
+  }
+
+  .btns a:last-child {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+  }
+}
+
+/* Loading state animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+/* Print styles */
+@media print {
+  #error-page {
+    background: white;
+    color: black;
+    min-height: auto;
+  }
+
+  .content {
+    background: white;
+    color: black;
+    box-shadow: none;
+    border: 1px solid black;
+  }
+
+  .header {
+    background: black;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+    color: black;
+  }
+
+  .btns a {
+    background: white;
+    color: black;
+    border: 1px solid black;
+  }
+}
