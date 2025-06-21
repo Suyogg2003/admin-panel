@@ -12,7 +12,7 @@ const home = async (req, res) => {
 // registration logic
 const register = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, phone, password } = req.body;
     const userExist = await User.findOne({ email });
 
     if (userExist) {
@@ -26,6 +26,7 @@ const register = async (req, res) => {
     const userCreated = await User.create({
       username,
       email,
+      phone,
       password: hashed_password,
     });
     res.status(200).json({
