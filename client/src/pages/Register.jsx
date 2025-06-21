@@ -32,6 +32,10 @@ export const Register = () => {
         body: JSON.stringify(user), // converts obj into json
       });
       console.log(response);
+      if (response.ok) {
+        alert("registration successful");
+        setUser[{ username: "", email: "", phone: "", password: "" }];
+      } else alert("invalid credentials");
     } catch (error) {
       console.log("register", error);
     }
