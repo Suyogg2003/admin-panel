@@ -21,9 +21,20 @@ export const Register = () => {
   };
 
   // handling the form submition
-  const handeleSubmit = (e) => {
+  const handeleSubmit = async (e) => {
     e.preventDefault(); // this is used bcoz on submiting the butten page refresh takes place , so this statement prevent this
     console.log(user);
+
+    try {
+      const response = await fetch(`http://localhost:5000/api/auth/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user), // converts obj into json
+      });
+      console.log(response);
+    } catch (error) {
+      console.log("register", error);
+    }
   };
 
   return (
