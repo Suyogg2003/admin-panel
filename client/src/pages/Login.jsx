@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // 👈 Import this , this hook is use for navigate from one page to another
 
 export const Login = () => {
+  // step 1
   const [user, setUser] = useState({ email: "", password: "" });
   const navigate = useNavigate(); // 👈 useNavigate hook
 
   const handleInput = (e) => {
+    // step2
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
 
   const handleSubmit = async (e) => {
+    // step3
     e.preventDefault();
     console.log("Login Data:", user);
 
@@ -32,6 +35,7 @@ export const Login = () => {
   };
 
   return (
+    //step 1
     <section>
       <main>
         <div className="section-registration">

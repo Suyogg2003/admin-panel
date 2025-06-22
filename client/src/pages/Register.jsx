@@ -2,7 +2,9 @@ import { useState } from "react";
 import "../styles/register.css";
 
 export const Register = () => {
+  //step1
   const [user, setUser] = useState({
+    //step2
     username: "",
     email: "",
     phone: "",
@@ -11,6 +13,7 @@ export const Register = () => {
 
   // handling the input values
   const handleInput = (e) => {
+    //step3
     let name = e.target.name;
     let value = e.target.value;
 
@@ -22,6 +25,7 @@ export const Register = () => {
 
   // handling the form submition
   const handeleSubmit = async (e) => {
+    //step4
     e.preventDefault(); // this is used bcoz on submiting the butten page refresh takes place , so this statement prevent this
     console.log(user);
 
@@ -42,6 +46,7 @@ export const Register = () => {
   };
 
   return (
+    //step1
     <>
       <section>
         <main>
