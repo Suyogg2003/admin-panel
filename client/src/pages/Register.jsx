@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "../styles/register.css";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
 export const Register = () => {
   //step1
@@ -10,6 +12,9 @@ export const Register = () => {
     phone: "",
     password: "",
   });
+
+  const navigate = useNavigate();
+  const { storeTokenInLS } = useAuth();
 
   // handling the input values
   const handleInput = (e) => {
@@ -25,23 +30,29 @@ export const Register = () => {
 
   // handling the form submition
   const handeleSubmit = async (e) => {
-    //step4
-    e.preventDefault(); // this is used bcoz on submiting the butten page refresh takes place , so this statement prevent this
+    e.preventDefault();
     console.log(user);
 
     try {
       const response = await fetch(`http://localhost:5000/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user), // converts obj into json
+        body: JSON.stringify(user),
       });
-      console.log(response);
+
       if (response.ok) {
+        const res_data = await response.json();
+        console.log("response from server", res_data);
+
+        storeTokenInLS(res_data.token);
         alert("registration successful");
-        setUser[{ username: "", email: "", phone: "", password: "" }];
-      } else alert("invalid credentials");
+        setUser({ username: "", email: "", phone: "", password: "" });
+        navigate("/login"); // ✅ use navigate here
+      } else {
+        alert("invalid credentials");
+      }
     } catch (error) {
-      console.log("register", error);
+      console.log("register error", error);
     }
   };
 

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // 👈 Import this , this hook is use for navigate from one page to another
-
+import { useAuth } from "../store/auth";
 export const Login = () => {
   // step 1
   const [user, setUser] = useState({ email: "", password: "" });
   const navigate = useNavigate(); // 👈 useNavigate hook
+  const { storeTokenInLS } = useAuth(); // usecontext hook
 
   const handleInput = (e) => {
     // step2
@@ -26,6 +27,9 @@ export const Login = () => {
       console.log(response);
       if (response.ok) {
         alert("login successful");
+
+        const res_data = await response.json();
+        storeTokenInLS(res_data.token);
         setUser[{ email: "", password: "" }];
         navigate("/");
       } else alert("invalid credentials");
