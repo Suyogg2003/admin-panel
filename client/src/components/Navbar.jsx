@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import "./Navbar.css";
+import { useAuth } from "../store/auth";
 
 export const Navbar = () => {
+  const { isLoggedIn } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -44,16 +46,28 @@ export const Navbar = () => {
                 Contact
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/register" onClick={() => setMenuOpen(false)}>
-                Register
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/login" onClick={() => setMenuOpen(false)}>
-                Login
-              </NavLink>
-            </li>
+            {/* here we using turnery operater */}
+            {isLoggedIn ? (
+              <li>
+                <NavLink to="/logout" onClick={() => setMenuOpen(false)}>
+                  Logout
+                </NavLink>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <NavLink to="/register" onClick={() => setMenuOpen(false)}>
+                    Register
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/login" onClick={() => setMenuOpen(false)}>
+                    Login
+                  </NavLink>
+                </li>
+              </>
+            )}
+            {/* here turnery operater close */}
           </ul>
         </nav>
       </div>
