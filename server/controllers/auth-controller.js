@@ -1,6 +1,7 @@
 // home logic
 const User = require("../models/user-model");
 const bcrypt = require("bcryptjs");
+
 const home = async (req, res) => {
   try {
     res.status(200).send("hello word");
@@ -63,7 +64,9 @@ const login = async (req, res) => {
     } else {
       res.status(401).json({ message: "Invalid credentioals" });
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log("user not exist ");
+  }
 };
 
 //user logic - to send user data to user route
@@ -71,7 +74,7 @@ const user = async (req, res) => {
   try {
     const userData = req.user;
     console.log(userData);
-    return res.status(200).json({ msg: userData });
+    return res.status(200).json({ userData });
   } catch (error) {
     console.log(`error from user route ${error}`);
   }

@@ -1,13 +1,21 @@
 import React from "react";
 import "../styles/about.css";
+import { useAuth } from "../store/auth";
 
 export const About = () => {
+  const { user } = useAuth();
   return (
     <>
       <main>
         <section className="section-about">
           <div className="container">
             <div className="about-header">
+              <p>
+                Welcome,
+                {user
+                  ? `${user.userData.username} to our website `
+                  : "to our website"}
+              </p>
               <h1>About Us</h1>
               <h2>Welcome to Balaji Electronics</h2>
               <p>

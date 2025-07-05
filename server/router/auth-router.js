@@ -1,5 +1,6 @@
-const express = require("express");
-const router = express.Router();
+const express = require("express"); // ✅ Import express
+const router = express.Router(); // ✅ Create express router
+
 //const { home } = require("../controllers/auth-controller");
 // this we can write as
 const authcontrollers = require("../controllers/auth-controller");
